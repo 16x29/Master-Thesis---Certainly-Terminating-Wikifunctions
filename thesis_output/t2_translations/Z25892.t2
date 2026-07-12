@@ -1,0 +1,93 @@
+START: 0;
+
+FROM: 0;
+TO: 2;
+
+FROM: 2;
+x := Z12427K1;
+TO: 3;
+
+FROM: 5;
+TO: 1;
+
+FROM: 6;
+TO: 4;
+
+FROM: 3;
+assume((x <= 1));
+TO: 5;
+
+FROM: 3;
+assume((!((x <= 1))));
+TO: 4;
+
+FROM: 8;
+TO: 1;
+
+FROM: 9;
+TO: 7;
+
+FROM: 4;
+assume((x <= 3));
+TO: 8;
+
+FROM: 4;
+assume((!((x <= 3))));
+TO: 7;
+
+FROM: 11;
+TO: 1;
+
+FROM: 12;
+TO: 10;
+
+FROM: 7;
+assume(((((x) % (2)) == 0) || (((x) % (3)) == 0)));
+TO: 11;
+
+FROM: 7;
+assume((!(((((x) % (2)) == 0) || (((x) % (3)) == 0)))));
+TO: 10;
+
+FROM: 10;
+div := 5;
+TO: 13;
+
+FROM: 13;
+TO: 15;
+
+FROM: 18;
+TO: 1;
+
+FROM: 19;
+TO: 17;
+
+FROM: 16;
+assume(((((x) % (div)) == 0) || (((x) % (((div) + (2)))) == 0)));
+TO: 18;
+
+FROM: 16;
+assume((!(((((x) % (div)) == 0) || (((x) % (((div) + (2)))) == 0)))));
+TO: 17;
+
+FROM: 17;
+div := ((div) + (6));
+TO: 20;
+
+FROM: 20;
+TO: 15;
+
+FROM: 15;
+assume((((div) * (div)) <= x));
+TO: 16;
+
+FROM: 15;
+assume((!((((div) * (div)) <= x))));
+TO: 14;
+
+FROM: 14;
+TO: 1;
+
+FROM: 21;
+TO: 1;
+

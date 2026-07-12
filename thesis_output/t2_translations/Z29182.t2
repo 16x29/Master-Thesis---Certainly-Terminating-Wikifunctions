@@ -1,0 +1,32 @@
+START: 0;
+
+FROM: 0;
+TO: 2;
+
+FROM: 2;
+TO: 4;
+
+FROM: 5;
+_t0 := Z13701K2;
+_t1 := ((Z13701K1) % (Z13701K2));
+Z13701K1 := _t0;
+Z13701K2 := _t1;
+TO: 6;
+
+FROM: 6;
+TO: 4;
+
+FROM: 4;
+assume((Z13701K2 != 0));
+TO: 5;
+
+FROM: 4;
+assume((!((Z13701K2 != 0))));
+TO: 3;
+
+FROM: 3;
+TO: 1;
+
+FROM: 7;
+TO: 1;
+

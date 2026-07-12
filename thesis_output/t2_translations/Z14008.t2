@@ -1,0 +1,45 @@
+START: 0;
+
+FROM: 0;
+TO: 2;
+
+FROM: 2;
+k := ((Z14007K1) / (2));
+TO: 3;
+
+FROM: 3;
+n := 1;
+TO: 4;
+
+FROM: 4;
+i := 1;
+TO: 6;
+
+FROM: 6;
+TO: 7;
+
+FROM: 8;
+n := ((((n) * (((((Z14007K1) - (k))) + (i))))) / (i));
+TO: 10;
+
+FROM: 10;
+TO: 9;
+
+FROM: 9;
+i := ((i) + (1));
+TO: 7;
+
+FROM: 7;
+assume((i < ((k) + (1))));
+TO: 8;
+
+FROM: 7;
+assume((!((i < ((k) + (1))))));
+TO: 5;
+
+FROM: 5;
+TO: 1;
+
+FROM: 11;
+TO: 1;
+
