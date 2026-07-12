@@ -1,0 +1,6 @@
+tool,terminating,non-terminating,genuine-unknown,timeout,tool-error,Total
+t2,11,0,30,0,2,43
+koat,6,0,0,0,37,43
+aprove_c,15,0,7,0,21,43
+muval_c,29,1,0,0,13,43
+verymax,11,0,0,30,2,43
