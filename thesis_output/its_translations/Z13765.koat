@@ -1,0 +1,25 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS loc2))
+(VAR Z13764K1 npdiv i n)
+(RULES
+  loc2(Z13764K1, npdiv, i, n) -> loc3(Z13764K1, 0, i, n)
+  loc3(Z13764K1, npdiv, i, n) -> loc4(Z13764K1, npdiv, 2, n)
+  loc4(Z13764K1, npdiv, i, n) -> loc5(Z13764K1, npdiv, i, Z13764K1)
+  loc5(Z13764K1, npdiv, i, n) -> loc7(Z13764K1, npdiv, i, n)
+  loc8(Z13764K1, npdiv, i, n) -> loc10(Z13764K1, npdiv, i, n)
+  loc11(Z13764K1, npdiv, i, n) -> loc12(Z13764K1, npdiv, i, ((n) / (i)))
+  loc12(Z13764K1, npdiv, i, n) -> loc13(Z13764K1, ((npdiv) + (1)), i, n)
+  loc13(Z13764K1, npdiv, i, n) -> loc10(Z13764K1, npdiv, i, n)
+  loc10(Z13764K1, npdiv, i, n) -> loc11(Z13764K1, npdiv, i, n) :|: ((n) % (i)) == 0
+  loc10(Z13764K1, npdiv, i, n) -> loc9(Z13764K1, npdiv, i, n) :|: ((n) % (i)) != 0
+  loc9(Z13764K1, npdiv, i, n) -> loc14(Z13764K1, npdiv, ((i) + (1)), n)
+  loc14(Z13764K1, npdiv, i, n) -> loc7(Z13764K1, npdiv, i, n)
+  loc7(Z13764K1, npdiv, i, n) -> loc8(Z13764K1, npdiv, i, n) :|: ((i) * (i)) <= n
+  loc7(Z13764K1, npdiv, i, n) -> loc6(Z13764K1, npdiv, i, n) :|: ((i) * (i)) > n
+  loc16(Z13764K1, npdiv, i, n) -> loc17(Z13764K1, ((npdiv) + (1)), i, n)
+  loc17(Z13764K1, npdiv, i, n) -> loc15(Z13764K1, npdiv, i, n)
+  loc6(Z13764K1, npdiv, i, n) -> loc16(Z13764K1, npdiv, i, n) :|: n > 1
+  loc6(Z13764K1, npdiv, i, n) -> loc15(Z13764K1, npdiv, i, n) :|: n <= 1
+  loc15(Z13764K1, npdiv, i, n) -> loc1(Z13764K1, npdiv, i, n)
+  loc18(Z13764K1, npdiv, i, n) -> loc1(Z13764K1, npdiv, i, n)
+)

@@ -1,0 +1,15 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS loc2))
+(VAR Z14344K1 i level)
+(RULES
+  loc2(Z14344K1, i, level) -> loc3(Z14344K1, 1, level)
+  loc3(Z14344K1, i, level) -> loc4(Z14344K1, i, 10)
+  loc4(Z14344K1, i, level) -> loc6(Z14344K1, i, level)
+  loc7(Z14344K1, i, level) -> loc8(Z14344K1, ((i) + (1)), level)
+  loc8(Z14344K1, i, level) -> loc9(Z14344K1, i, ((level) * (10)))
+  loc9(Z14344K1, i, level) -> loc6(Z14344K1, i, level)
+  loc6(Z14344K1, i, level) -> loc7(Z14344K1, i, level) :|: ((Z14344K1) / (level)) != 0
+  loc6(Z14344K1, i, level) -> loc5(Z14344K1, i, level) :|: ((Z14344K1) / (level)) == 0
+  loc5(Z14344K1, i, level) -> loc1(Z14344K1, i, level)
+  loc10(Z14344K1, i, level) -> loc1(Z14344K1, i, level)
+)

@@ -1,0 +1,15 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS loc2))
+(VAR Z13843K1 x i)
+(RULES
+  loc2(Z13843K1, x, i) -> loc3(Z13843K1, 2, i)
+  loc3(Z13843K1, x, i) -> loc5(Z13843K1, x, 0)
+  loc5(Z13843K1, x, i) -> loc6(Z13843K1, x, i)
+  loc7(Z13843K1, x, i) -> loc9(Z13843K1, ((((((x)*(x))) - (x))) + (1)), i)
+  loc9(Z13843K1, x, i) -> loc8(Z13843K1, x, i)
+  loc8(Z13843K1, x, i) -> loc6(Z13843K1, x, ((i) + (1)))
+  loc6(Z13843K1, x, i) -> loc7(Z13843K1, x, i) :|: i < Z13843K1
+  loc6(Z13843K1, x, i) -> loc4(Z13843K1, x, i) :|: i >= Z13843K1
+  loc4(Z13843K1, x, i) -> loc1(Z13843K1, x, i)
+  loc10(Z13843K1, x, i) -> loc1(Z13843K1, x, i)
+)

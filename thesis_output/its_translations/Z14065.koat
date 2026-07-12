@@ -1,0 +1,20 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS loc2))
+(VAR Z14058K1 value steps)
+(RULES
+  loc2(Z14058K1, value, steps) -> loc3(Z14058K1, Z14058K1, steps)
+  loc3(Z14058K1, value, steps) -> loc4(Z14058K1, value, 0)
+  loc4(Z14058K1, value, steps) -> loc6(Z14058K1, value, steps)
+  loc7(Z14058K1, value, steps) -> loc8(Z14058K1, value, ((steps) + (1)))
+  loc10(Z14058K1, value, steps) -> loc11(Z14058K1, ((value) / (2)), steps)
+  loc11(Z14058K1, value, steps) -> loc9(Z14058K1, value, steps)
+  loc12(Z14058K1, value, steps) -> loc13(Z14058K1, ((((3) * (value))) + (1)), steps)
+  loc13(Z14058K1, value, steps) -> loc9(Z14058K1, value, steps)
+  loc8(Z14058K1, value, steps) -> loc10(Z14058K1, value, steps) :|: ((value) % (2)) == 0
+  loc8(Z14058K1, value, steps) -> loc12(Z14058K1, value, steps) :|: ((value) % (2)) != 0
+  loc9(Z14058K1, value, steps) -> loc6(Z14058K1, value, steps)
+  loc6(Z14058K1, value, steps) -> loc7(Z14058K1, value, steps) :|: value > 1
+  loc6(Z14058K1, value, steps) -> loc5(Z14058K1, value, steps) :|: value <= 1
+  loc5(Z14058K1, value, steps) -> loc1(Z14058K1, value, steps)
+  loc14(Z14058K1, value, steps) -> loc1(Z14058K1, value, steps)
+)

@@ -1,0 +1,18 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS loc2))
+(VAR Z15741K1 Z15741K2 n k)
+(RULES
+  loc2(Z15741K1, Z15741K2, n, k) -> loc3(Z15741K1, Z15741K2, Z15741K1, Z15741K2)
+  loc5(Z15741K1, Z15741K2, n, k) -> loc1(Z15741K1, Z15741K2, n, k)
+  loc6(Z15741K1, Z15741K2, n, k) -> loc4(Z15741K1, Z15741K2, n, k)
+  loc3(Z15741K1, Z15741K2, n, k) -> loc5(Z15741K1, Z15741K2, n, k) :|: k <= 1
+  loc3(Z15741K1, Z15741K2, n, k) -> loc5(Z15741K1, Z15741K2, n, k) :|: n == 0
+  loc3(Z15741K1, Z15741K2, n, k) -> loc4(Z15741K1, Z15741K2, n, k) :|: k > 1 && n != 0
+  loc4(Z15741K1, Z15741K2, n, k) -> loc8(Z15741K1, Z15741K2, n, k)
+  loc9(Z15741K1, Z15741K2, n, k) -> loc10(Z15741K1, Z15741K2, ((n) / (k)), k)
+  loc10(Z15741K1, Z15741K2, n, k) -> loc8(Z15741K1, Z15741K2, n, k)
+  loc8(Z15741K1, Z15741K2, n, k) -> loc9(Z15741K1, Z15741K2, n, k) :|: ((n) % (k)) == 0
+  loc8(Z15741K1, Z15741K2, n, k) -> loc7(Z15741K1, Z15741K2, n, k) :|: ((n) % (k)) != 0
+  loc7(Z15741K1, Z15741K2, n, k) -> loc1(Z15741K1, Z15741K2, n, k)
+  loc11(Z15741K1, Z15741K2, n, k) -> loc1(Z15741K1, Z15741K2, n, k)
+)

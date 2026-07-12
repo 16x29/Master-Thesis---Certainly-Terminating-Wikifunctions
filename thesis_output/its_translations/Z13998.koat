@@ -1,0 +1,15 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS loc2))
+(VAR Z13997K1 n i)
+(RULES
+  loc2(Z13997K1, n, i) -> loc3(Z13997K1, 1, i)
+  loc3(Z13997K1, n, i) -> loc5(Z13997K1, n, ((((2) * (Z13997K1))) - (1)))
+  loc5(Z13997K1, n, i) -> loc6(Z13997K1, n, i)
+  loc7(Z13997K1, n, i) -> loc9(Z13997K1, ((n) * (i)), i)
+  loc9(Z13997K1, n, i) -> loc8(Z13997K1, n, i)
+  loc8(Z13997K1, n, i) -> loc6(Z13997K1, n, ((i) + ((-(2)))))
+  loc6(Z13997K1, n, i) -> loc7(Z13997K1, n, i) :|: i > 0
+  loc6(Z13997K1, n, i) -> loc4(Z13997K1, n, i) :|: i <= 0
+  loc4(Z13997K1, n, i) -> loc1(Z13997K1, n, i)
+  loc10(Z13997K1, n, i) -> loc1(Z13997K1, n, i)
+)

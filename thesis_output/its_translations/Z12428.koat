@@ -1,0 +1,23 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS loc2))
+(VAR Z12427K1 cnt x)
+(RULES
+  loc2(Z12427K1, cnt, x) -> loc3(Z12427K1, 2, x)
+  loc3(Z12427K1, cnt, x) -> loc4(Z12427K1, cnt, Z12427K1)
+  loc6(Z12427K1, cnt, x) -> loc1(Z12427K1, cnt, x)
+  loc7(Z12427K1, cnt, x) -> loc5(Z12427K1, cnt, x)
+  loc4(Z12427K1, cnt, x) -> loc6(Z12427K1, cnt, x) :|: x <= 1
+  loc4(Z12427K1, cnt, x) -> loc5(Z12427K1, cnt, x) :|: x > 1
+  loc5(Z12427K1, cnt, x) -> loc9(Z12427K1, cnt, x)
+  loc12(Z12427K1, cnt, x) -> loc1(Z12427K1, cnt, x)
+  loc13(Z12427K1, cnt, x) -> loc11(Z12427K1, cnt, x)
+  loc14(Z12427K1, cnt, x) -> loc15(Z12427K1, ((cnt) + (1)), x)
+  loc15(Z12427K1, cnt, x) -> loc11(Z12427K1, cnt, x)
+  loc10(Z12427K1, cnt, x) -> loc12(Z12427K1, cnt, x) :|: ((x) % (cnt)) == 0
+  loc10(Z12427K1, cnt, x) -> loc14(Z12427K1, cnt, x) :|: ((x) % (cnt)) != 0
+  loc11(Z12427K1, cnt, x) -> loc9(Z12427K1, cnt, x)
+  loc9(Z12427K1, cnt, x) -> loc10(Z12427K1, cnt, x) :|: cnt < x
+  loc9(Z12427K1, cnt, x) -> loc8(Z12427K1, cnt, x) :|: cnt >= x
+  loc8(Z12427K1, cnt, x) -> loc1(Z12427K1, cnt, x)
+  loc16(Z12427K1, cnt, x) -> loc1(Z12427K1, cnt, x)
+)

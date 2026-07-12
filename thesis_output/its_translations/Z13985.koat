@@ -1,0 +1,29 @@
+(GOAL COMPLEXITY)
+(STARTTERM (FUNCTIONSYMBOLS loc2))
+(VAR Z13984K1 n i sdiv)
+(RULES
+  loc2(Z13984K1, n, i, sdiv) -> loc3(Z13984K1, Z13984K1, i, sdiv)
+  loc3(Z13984K1, n, i, sdiv) -> loc5(Z13984K1, n, i, sdiv)
+  loc6(Z13984K1, n, i, sdiv) -> loc7(Z13984K1, ((n) / (2)), i, sdiv)
+  loc7(Z13984K1, n, i, sdiv) -> loc5(Z13984K1, n, i, sdiv)
+  loc5(Z13984K1, n, i, sdiv) -> loc6(Z13984K1, n, i, sdiv) :|: n != 0 && ((n) % (2)) == 0
+  loc5(Z13984K1, n, i, sdiv) -> loc4(Z13984K1, n, i, sdiv) :|: n == 0
+  loc5(Z13984K1, n, i, sdiv) -> loc4(Z13984K1, n, i, sdiv) :|: ((n) % (2)) != 0
+  loc4(Z13984K1, n, i, sdiv) -> loc8(Z13984K1, n, 1, sdiv)
+  loc8(Z13984K1, n, i, sdiv) -> loc9(Z13984K1, n, i, 0)
+  loc9(Z13984K1, n, i, sdiv) -> loc11(Z13984K1, n, i, sdiv)
+  loc14(Z13984K1, n, i, sdiv) -> loc15(Z13984K1, n, i, ((sdiv) + (i)))
+  loc17(Z13984K1, n, i, sdiv) -> loc18(Z13984K1, n, i, ((sdiv) + (((n) / (i)))))
+  loc18(Z13984K1, n, i, sdiv) -> loc16(Z13984K1, n, i, sdiv)
+  loc15(Z13984K1, n, i, sdiv) -> loc17(Z13984K1, n, i, sdiv) :|: ((i) * (i)) < n
+  loc15(Z13984K1, n, i, sdiv) -> loc16(Z13984K1, n, i, sdiv) :|: ((i) * (i)) >= n
+  loc16(Z13984K1, n, i, sdiv) -> loc13(Z13984K1, n, i, sdiv)
+  loc12(Z13984K1, n, i, sdiv) -> loc14(Z13984K1, n, i, sdiv) :|: ((n) % (i)) == 0
+  loc12(Z13984K1, n, i, sdiv) -> loc13(Z13984K1, n, i, sdiv) :|: ((n) % (i)) != 0
+  loc13(Z13984K1, n, i, sdiv) -> loc19(Z13984K1, n, ((i) + (1)), sdiv)
+  loc19(Z13984K1, n, i, sdiv) -> loc11(Z13984K1, n, i, sdiv)
+  loc11(Z13984K1, n, i, sdiv) -> loc12(Z13984K1, n, i, sdiv) :|: ((i) * (i)) <= n
+  loc11(Z13984K1, n, i, sdiv) -> loc10(Z13984K1, n, i, sdiv) :|: ((i) * (i)) > n
+  loc10(Z13984K1, n, i, sdiv) -> loc1(Z13984K1, n, i, sdiv)
+  loc20(Z13984K1, n, i, sdiv) -> loc1(Z13984K1, n, i, sdiv)
+)
