@@ -36,8 +36,8 @@ The notebook is controlled by two flags:
 - `False` (reproduction mode): skips XML extraction, categorization, and
   translation. Everything is loaded from the committed
   `thesis_output/wikifunctions.db`. No dump file needed.
-- `True`: re-derives everything from the raw XML dump, like extraction,
-  categorization, translation and differential testing. Requires the dump file
+- `True`: re-derives everything from the raw XML dump — extraction,
+  categorization, translation, differential testing. Requires the dump file
   (see below).
 
 **`RUN_TOOLS`** (tool execution cell, further down)
@@ -60,18 +60,60 @@ hardware, so those marginal counts may shift on a different machine.
 
 ## Requirements
 
-- Python 3 with Jupyter and packages: `pandas`, `tqdm` (the notebook installs
-  `tqdm` itself, everything else is standard library)
+- Python 3 with Jupyter; packages: `pandas`, `tqdm` (the notebook installs
+  `tqdm` itself; everything else is standard library)
 - Only for `REBUILD_FROM_SOURCE = True`: the Wikifunctions XML dump of
   **2026-05-01**, available from the Wikimedia dump service:
   <https://dumps.wikimedia.org/other/mediawiki_content_current/wikifunctionswiki/2026-05-01/xml/bzip2/>
   — download, decompress, and place it next to the notebook as
   `wikifunctionswiki-2026-05-01-p3p82100.xml` (or adjust `DUMP_PATH` in the
   configuration cell).
-- Only for `RUN_TOOLS = True`: [Docker](https://www.docker.com/) and the
-  official Termination Competition tool images from
-  <https://hub.docker.com/u/termcomp> (the exact image names are in the
-  tool execution cells).
+- Only for `RUN_TOOLS = True`: [Docker](https://www.docker.com/) and the four
+  official Termination Competition tool images. The exact image names, the
+  tool-to-image mapping, and setup are in
+  [Running the tools with Docker](#running-the-tools-with-docker) below.
+
+## Running the tools with Docker
+
+This section is only needed to **re-run the tools** (`RUN_TOOLS = True`). For
+plain reproduction of the thesis numbers you do **not** need Docker — set both
+switches to `False` and the verdicts are re-derived from the raw outputs already
+stored in the database.
+
+### Tool-to-image mapping
+
+The five tools run inside **four** official Termination Competition Docker
+images (AProVE and KoAT share one image). The image names are defined as
+constants at the top of the tool-execution cell in the notebook, and the
+notebook calls them exactly as listed here:
+
+| Tool | Notebook constant | Docker image (`name:tag`) | Input files | Command run inside the container |
+|---|---|---|---|---|
+| AProVE  | `APROVE_IMAGE`  | `termcomp/2025_aprove_koat_loat:578822` | `.c`    | `solver --timeout=60 --category=C_Integer_Programs <file>` |
+| MuVal   | `MUVAL_IMAGE`   | `termcomp/2025_coar:latest`             | `.c`    | `solver --timeout=60 --category=C <file>` |
+| KoAT    | `APROVE_IMAGE`  | `termcomp/2025_aprove_koat_loat:578822` | `.koat` | `/aprove/bin/koat2 analyse --input <file>` |
+| T2      | `T2_IMAGE`      | `termcomp/2025_t2_termcomp:2025`        | `.t2`   | `/t2/t2/bin/T2_static -termination -print_proof -try_nonterm true -input_t2 <file>` |
+| VeryMax | `VERYMAX_IMAGE` | `termcomp/2025_verymax_termcomp:2025`   | `.t2`   | `/verymax/bin/verymax <file>` |
+
+The 60-second per-run limit is the `TOOL_TIMEOUT` constant in the same cell.
+
+### Setup
+
+1. **Install Docker** and confirm it works: `docker run --rm hello-world`.
+2. **Get the images.** Go to the Termination Competition's Docker Hub page,
+   <https://hub.docker.com/u/termcomp>, and download the four images listed in
+   the table above (they are named after the tools). A plain `docker run` also
+   pulls them automatically the first time they are used.
+3. **Run the experiment.** In the tool-execution cell set `RUN_TOOLS = True` and
+   run all cells top to bottom. The notebook mounts the translation folders into
+   each container automatically and executes all 215 runs (43 functions × 5
+   tools), storing each tool's verbatim output in the database.
+
+The image names in the table match the `*_IMAGE` constants at the top of the
+tool-execution cell by default; if your local copies are named differently, edit
+those constants. KoAT runs from the AProVE image (it has no separate image).
+Proven verdicts are stable across machines, but timeout and memory-related
+counts depend on hardware and may differ slightly from the committed run.
 
 ## Verifying individual results
 
