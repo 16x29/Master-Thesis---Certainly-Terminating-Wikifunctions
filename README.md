@@ -36,7 +36,7 @@ The notebook is controlled by two flags:
 - `False` (reproduction mode): skips XML extraction, categorization, and
   translation. Everything is loaded from the committed
   `thesis_output/wikifunctions.db`. No dump file needed.
-- `True`: re-derives everything from the raw XML dump — extraction,
+- `True`: re-derives everything from the raw XML dump, like extraction,
   categorization, translation, differential testing. Requires the dump file
   (see below).
 
@@ -61,11 +61,12 @@ hardware, so those marginal counts may shift on a different machine.
 ## Requirements
 
 - Python 3 with Jupyter; packages: `pandas`, `tqdm` (the notebook installs
-  `tqdm` itself; everything else is standard library)
+  `tqdm` itself, everything else is standard library)
 - Only for `REBUILD_FROM_SOURCE = True`: the Wikifunctions XML dump of
   **2026-05-01**, available from the Wikimedia dump service:
   <https://dumps.wikimedia.org/other/mediawiki_content_current/wikifunctionswiki/2026-05-01/xml/bzip2/>
-  — download, decompress, and place it next to the notebook as
+  
+  Download, decompress and place it next to the notebook as
   `wikifunctionswiki-2026-05-01-p3p82100.xml` (or adjust `DUMP_PATH` in the
   configuration cell).
 - Only for `RUN_TOOLS = True`: [Docker](https://www.docker.com/) and the four
