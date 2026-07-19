@@ -1,6 +1,0 @@
-tool,format_tier,terminating,non-terminating,genuine-unknown,timeout,tool-error
-aprove_c,c,15,0,7,0,21
-koat,koat,6,0,0,0,37
-muval_c,c,29,1,0,0,13
-t2,t2,11,0,30,0,2
-verymax,t2,11,0,0,30,2
